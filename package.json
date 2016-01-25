@@ -1,8 +1,9 @@
 {
   "name": "niplumber.com",
   "version": "2.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
   "scripts": {
     "build": "webpack -p",
     "start": "nodemon --watch src --exec babel-node ./bin/server",
@@ -10,16 +11,6 @@
     "start:production": "NODE_ENV=production babel-node ./bin/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cameronhunter/niplumber.com.git"
-  },
-  "author": "Cameron Hunter",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cameronhunter/niplumber.com/issues"
-  },
-  "homepage": "https://github.com/cameronhunter/niplumber.com#readme",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "compression": "^1.6.1",
@@ -37,5 +28,13 @@
     "nodemon": "^1.8.1",
     "webpack": "^1.12.12",
     "webpack-dev-middleware": "^1.5.1"
-  }
+  },
+  "homepage": "https://github.com/cameronhunter/niplumber.com#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cameronhunter/niplumber.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cameronhunter/niplumber.com/issues"
+  },
 }
