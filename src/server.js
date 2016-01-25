@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom/server";
 import { match, RouterContext } from "react-router";
 
+import App from "./containers/App";
 import routes from "./routes";
 
 const app = new Express();
@@ -27,22 +28,13 @@ app.use((request, response, next) => {
       return response.send(404);
     }
 
-    const html = ReactDOM.renderToString(
-      <RouterContext {...renderProps} />
+    const html = ReactDOM.renderToStaticMarkup(
+      <App scripts={{ vendor: "/dist/vendor.js", app: "/dist/app.js" }}>
+        <RouterContext {...renderProps} />
+      </App>
     );
 
-    response.status(200).send(`
-      <!doctype html>
-      <html>
-        <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </head>
-        <body>
-          <main id="app">${html}</main>
-          <script src="/dist/app.js"></script>
-        </body>
-      </html>
-    `);
+    response.status(200).send(`<!doctype html>\n${html}`);
   });
 });
 

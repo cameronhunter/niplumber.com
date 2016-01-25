@@ -3,7 +3,8 @@ import path from "path";
 
 export default {
   entry: {
-    app: path.join(__dirname, "src", "client.js")
+    app: path.join(__dirname, "src", "client.js"),
+    vendor: ["react", "react-dom", "react-router", "babel-polyfill"]
   },
   output: {
     path: path.join(__dirname, "static", "dist"),
@@ -16,6 +17,7 @@ export default {
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
   ]
 }
