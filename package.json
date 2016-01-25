@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "prestart": "npm run build",
     "start": "babel-node ./bin/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
