@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+import server from "../src/server";
+
+const port = 3001;
+const host = "localhost";
+
+server.listen(port, error => {
+  console.info(`🌎  Open http://${host}:${port} in a browser to view the app`);
+});
