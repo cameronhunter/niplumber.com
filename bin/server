@@ -1,10 +1,19 @@
 #!/usr/bin/env node
 
+import Express from "express";
+import compression from "compression";
+import path from "path";
 import server from "../src/server";
+
+const app = new Express();
+
+app.use(compression());
+app.use(Express.static(path.join(__dirname, "..", "static")));
+app.use(server);
 
 const port = 3001;
 const host = "localhost";
 
-server.listen(port, error => {
+app.listen(port, error => {
   console.info(`🌎  Open http://${host}:${port} in a browser to view the app`);
 });
