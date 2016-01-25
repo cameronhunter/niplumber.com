@@ -8,7 +8,8 @@ export default {
   },
   output: {
     path: path.join(__dirname, "static", "dist"),
-    filename: "[name].js"
+    filename: "[name].js",
+    publicPath: "/dist"
   },
   module: {
     loaders: [
@@ -18,6 +19,7 @@ export default {
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new webpack.NoErrorsPlugin()
   ]
 }

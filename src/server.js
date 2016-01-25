@@ -5,7 +5,7 @@ import { RouterContext, match } from "react-router";
 import App from "./containers/App";
 import routes from "./routes";
 
-export default (request, response) => {
+export default function(request, response, next) {
   match({ routes, location: request.url }, (error, redirectLocation, renderProps) => {
     if (error) {
       return response.send(500, error.message);
